@@ -41,7 +41,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 20px 10px;
+            width: 1200px; 
+            height: auto; 
+            margin: 0 auto;
         }
         .experience-container{
             background-color: #86a690;
@@ -52,6 +55,7 @@
             width: 1200px; 
             height: auto; 
             margin: 0 auto;
+            border-radius: 30px;
         }
         .gap-space{
             overflow: hidden;
@@ -60,7 +64,7 @@
         }
         .right {
             flex: 1;
-            text-align: center;
+            text-align: left;
             margin: 50px auto;
         }
         .left {
@@ -70,6 +74,32 @@
         .left img {
             display: block;
             margin: 10px auto;
+        }
+        .skills-container {
+            background-color:lightgrey;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0px 10px;
+            width: 1200px; 
+            height: auto; 
+            margin: 0 auto;
+            border-radius: 30px;
+        }
+        .skills-right{
+            flex: 1;
+            text-align: left;
+            margin: 5px;
+            padding: 5px;
+        }
+        .skills-left{
+            flex: 0;
+            text-align: left;
+        }
+        .skills-left img{
+            display: block;
+            margin: 10px auto;
+            padding: 5px;
         }
         .icons {
             display: flex;
@@ -94,23 +124,43 @@
         #typing {
             animation: blink 0.5s step-end infinite alternate;
         }
+        #typing-header {
+        font-family: 'Courier New', monospace;
+        font-size: 24px;
+        white-space: nowrap;
+        border-right: 2px solid black;
+        display: inline-block;
+        overflow: hidden;
+        animation: blink 0.75s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
     </style>
 </head>
 <body>
 
 <!-- Website Header -->
 <div class="header">
-    <a href="/" class="logo">Andy's Website</a>
+    <a href="/" class="logo">Andy's Portfolio</a>
     <div class="header-right">
         <a class="active" href="/">Home</a>
+        <a href="#experience">Experience</a>
+        <a href="#topskills">Top Skills</a>
+        <a href="#generalskills">General Skills</a>
         <a href="/projects">Projects</a>
+        
     </div>
 </div>
 
 <!-- Profile Pic W/ Links -->
 <div class="container">
     <div class="left">
-        <img src="{{ url_for('static', filename='images/headshot.jpg') }}" alt="Andy's Picture" width="200">
+        <img src="{{ url_for('static', filename='images/headshot.jpg') }}" alt="Andy's Picture" width="300">
         <div class="icons">
             <a href="https://github.com/agonzalez85" target="_blank">
                 <img src="{{ url_for('static', filename='images/github.jpg') }}" alt="GitHub" width="60">
@@ -134,13 +184,18 @@
 
 <!-- Experience -->
 <div class="center">
-    <h1>Experience</h1>
+    <hr style="border: 1px solid #000000; width: 100%;">
+    <div id="experience">
+        <h1>Experience</h1>
+    </div>
 </div>
 
 <!-- LLNL -->
 <div class="experience-container">
     <div class="left">
         <img src="{{ url_for('static', filename='images/llnl.jpg') }}" alt="LLNL Logo" width="200">
+        <p>May 2024 - August 2024</p>
+        <p>Livermore, California, United States ~ On-Site</p>
     </div>
     <div class="right">
         <h2>Electrical Engineer Intern</h2>
@@ -158,6 +213,8 @@
 <div class="experience-container">
     <div class="left">
         <img src="{{ url_for('static', filename='images/bk.jpg') }}" alt="LLNL Logo" width="200">
+        <p>June 2020 - May 2024</p>
+        <p>Hayward, California, United States ~ On-Site</p>
     </div>
     <div class="right">
         <h2>Electrical Engineer Intern</h2>
@@ -172,6 +229,8 @@
 <div class="experience-container">
     <div class="left">
         <img src="{{ url_for('static', filename='images/jlhs.jpg') }}" alt="LLNL Logo" width="200">
+        <p>September 2020 - May 2021</p>
+        <p>Union City, California, United States ~ Hybrid</p>
     </div>
     <div class="right">
         <h2>Mathematics Tutor</h2>
@@ -179,9 +238,66 @@
     </div>
 </div>
 
-<!-- Skills -->
+<div class="gap-space"></div>
+
+<!-- Top Skills -->
 <div class="center">
-    <h1>Skills</h1>
+    <hr style="border: 1px solid #000000; width: 100%;">
+    <div id="topskills">
+        <h1>Top Skills</h1>
+    </div>
+</div>
+
+<div class="skills-container">
+    <div class="skills-left">
+        <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="LLNL Logo" width="80">
+    </div>
+    <div class="skills-right">
+        <h2>Circuit Prototyping and Testing</h2>
+    </div>
+</div>
+
+<div class="gap-space"></div>
+
+<div class="skills-container">
+    <div class="skills-left">
+        <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="LLNL Logo" width="80">
+    </div>
+    <div class="skills-right">
+        <h2>PCB Assembly</h2>
+    </div>
+</div>
+
+<div class="gap-space"></div>
+
+<div class="skills-container">
+    <div class="skills-left">
+        <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="LLNL Logo" width="80">
+    </div>
+    <div class="skills-right">
+        <h2>Arduino</h2>
+    </div>
+</div>
+
+<div class="gap-space"></div>
+
+<div class="skills-container">
+    <div class="skills-left">
+        <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="LLNL Logo" width="80">
+    </div>
+    <div class="skills-right">
+        <h2>Data Acquisition and Analysis</h2>
+    </div>
+</div>
+
+<div class="gap-space"></div>
+
+<!-- General Skills -->
+<div class="center">
+    <hr style="border: 1px solid #000000; width: 100%;">
+    <div id="generalskills">
+        <h1>More General Skills</h1>
+    </div>
 </div>
 
 <div class="container">
@@ -198,7 +314,7 @@
         if (index < text.length) {
             typingElement.textContent += text[index];
             index++;
-            setTimeout(type, 100); // Adjust typing speed here (in milliseconds)
+            setTimeout(type, 100);
         }
     }
 
