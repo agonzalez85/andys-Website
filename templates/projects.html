@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { 
+            margin: 0;
+            font-family: 'Courier New', monospace;
+        }
+        .header {
+            overflow: hidden;
+            background-color: #55685d;
+            padding: 20px 10px;
+        }
+        .header a {
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px; 
+            line-height: 25px;
+            border-radius: 4px;
+        }
+        .header a.logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .header a:hover {
+            background-color: white;
+            color: black;
+        }
+        .header-right {
+            float: right;
+        }
+        .center {
+            flex: 1;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .project-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .left {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .left img {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+        }
+        .right  {
+            flex: 1;
+            text-align: center;
+        }
+        .icons {
+          display: flex;
+          justify-content: center;
+          margin-top: 10px;
+        }
+        .icons a {
+            margin-left: 10px;
+        }
+        .video-container {
+            flex: 1;
+            text-align: center; /* Align video to the right */
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+        #typing {
+            font-family: 'Courier New', monospace;
+            font-size: 24px;
+            white-space: pre;
+            border-right: 2px solid black;
+            display: inline-block;
+        }
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+        #typing {
+            animation: blink 0.5s step-end infinite alternate;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Website Header -->
+<div class="header">
+  <a href="/" class="logo">Andy's Website</a>
+  <div class="header-right">
+    <a href="/">Home</a>
+    <a class="active" href="/projects">Projects</a>
+  </div>
+</div>
+
+<!-- Projects List -->
+<div class="project-list">
+    <!-- Project Title -->
+    <div class="center">
+        <div id="typing"></div>
+    </div>
+
+    <!-- Project 1 -->
+    <div class="project-container">
+        <div class="left">
+            <div class="video-container">
+                <video width="50%" height="auto" controls>
+                    <source src="{{ url_for('static', filename='videos/project1.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <div class="right">
+            <h3>Amplifier Project</h3>
+            <p>This is a video of a DIY Amplifier</p>
+            <div class="icons">
+                <a href="https://github.com/agonzalez85" target="_blank">
+                    <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-container">
+        <div class="left">
+            <img src="{{ url_for('static', filename='images/project2.jpg') }}" alt="aquaventure" width="800">
+        </div>
+
+        <div class="right">
+            <h3>Project 2</h3>
+            <p>This is my girlfriend who's basically a second project</p>
+            <div class="icons">
+                <a href="https://github.com/agonzalez85" target="_blank">
+                    <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const text = "My Projects";
+    const typingElement = document.getElementById('typing');
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            typingElement.textContent += text[index];
+            index++;
+            setTimeout(type, 100); // Adjust typing speed here (in milliseconds)
+        }
+    }
+
+    window.onload = function() {
+        type();
+    };
+</script>
+
+</body>
+</html>

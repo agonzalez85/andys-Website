@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { 
+            margin: 0;
+            font-family: 'Courier New', monospace;
+        }
+        .header {
+            overflow: hidden;
+            background-color: #55685d;
+            padding: 20px 10px;
+        }
+        .header a {
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px; 
+            line-height: 25px;
+            border-radius: 4px;
+        }
+        .header a.logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .header a:hover {
+            background-color: white;
+            color: black;
+        }
+        .header-right {
+            float: right;
+        }
+        .center {
+            flex: 1;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .right {
+            flex: 1;
+            text-align: center;
+            margin: 50px auto;
+        }
+        .left {
+            flex: 1;
+            text-align: center;
+        }
+        .left img {
+            display: block;
+            margin: 10px auto;
+        }
+        .icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .icons a {
+            margin-left: 10px;
+        }
+        #typing {
+            font-family: 'Courier New', monospace;
+            font-size: 24px;
+            white-space: pre;
+            border-right: 2px solid black;
+            display: inline-block;
+        }
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+        #typing {
+            animation: blink 0.5s step-end infinite alternate;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Website Header -->
+<div class="header">
+    <a href="/" class="logo">Andy's Website</a>
+    <div class="header-right">
+        <a class="active" href="/">Home</a>
+        <a href="/projects">Projects</a>
+    </div>
+</div>
+
+<!-- Profile Pic W/ Links -->
+<div class="container">
+    <div class="left">
+        <img src="{{ url_for('static', filename='images/headshot.jpg') }}" alt="Andy's Picture" width="200">
+        <div class="icons">
+            <a href="https://github.com/agonzalez85" target="_blank">
+                <img src="{{ url_for('static', filename='images/github.jpg') }}" alt="GitHub" width="60">
+            </a>
+            <a href="https://www.linkedin.com/in/andygonzalez85/" target="_blank">
+                <img src="{{ url_for('static', filename='images/linkedin.jpg') }}" alt="LinkedIn" width="60">
+            </a>
+            <a href="mailto:andygonzalez53684@gmail.com?subject=Hello%20Arely&body=I%20would%20like%20to%20connect%20with%20you.">
+                <img src="{{ url_for('static', filename='images/email.jpg') }}" alt="Email" width="60">
+            </a>
+        </div>
+    </div>
+    <!-- Introduction -->
+    <div class="right">
+        <div id="typing"></div>
+        <p>My name is Andy Gonzalez</p>
+        <p>As a dedicated Electrical Engineering student at UCLA, I'm passionate about advancing my skills in electronics and circuit design. </p>
+        <p>My academic journey is driven by a commitment to innovation and a desire to contribute to impactful projects. I'm currently focused on obtaining an internship where I can apply my knowledge to real-world challenges in the electronics field.</p>
+    </div>
+</div>
+
+<!-- Experience -->
+<div class="center">
+    <h1>Experience</h1>
+</div>
+
+<!-- LLNL -->
+<div class="container">
+    <div class="left">
+        <img src="{{ url_for('static', filename='images/llnl.jpg') }}" alt="LLNL Logo" width="200">
+    </div>
+    <div class="right">
+        <h2>Electrical Engineer Intern</h2>
+        <p>- Prototyped an advanced testing system for a triboelectric nanogenerator circuit, increasing the maximum measurable output voltage by 4000%</p>
+        <p>- Designed and assembled 10 high input impedance voltage buffers and trans-impedance amplifiers for a custom experiment, measuring micro amp current and mega ohm impedances. </p>
+        <p>- Electrical characterization and modeling of display actuators in several display technologies, including liquid crystal displays. </p>
+        <p>- Used a robotic system to conduct over 100 experiments with mechanical actuation of the power harvesting system optimizing power transfer and power efficiency. </p>
+        <p>Designed and assembled a custom test box, integrating multiple measurement capabilities and enhancing circuit and user safety. </p>
+    </div>
+</div>
+
+<!-- BK -->
+<div class="container">
+    <div class="left">
+        <img src="{{ url_for('static', filename='images/bk.jpg') }}" alt="LLNL Logo" width="200">
+    </div>
+    <div class="right">
+        <h2>Electrical Engineer Intern</h2>
+        <p>Upheld exceptional customer service standards in fast-paced environments, effectively managing high volumes and addressing inquiries to ensure satisfaction.
+        Optimized operational efficiency by 20% through strategic task delegation, while enhancing cleanliness and safety, during opening responsibilities and team management.</p>
+    </div>
+</div>
+
+<!-- JLHS -->
+<div class="container">
+    <div class="left">
+        <img src="{{ url_for('static', filename='images/jlhs.jpg') }}" alt="LLNL Logo" width="200">
+    </div>
+    <div class="right">
+        <h2>Mathematics Tutor</h2>
+        <p>Tutored Calculus 1 and 2 students. Developed personalized lesson plans for numerous calculus students, resulting in a 30% increase in exam scores and a renewed interest in math.</p>
+    </div>
+</div>
+
+<!-- Skills -->
+<div class="center">
+    <h1>Skills</h1>
+</div>
+
+<div class="container">
+    <div class="left">
+        <img src="{{ url_for('static', filename='images/skills.jpg') }}" alt="Skills Roadmap" width="1000">
+    </div>
+
+<script>
+    const text = "Hi, I'm Andy";
+    const typingElement = document.getElementById('typing');
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            typingElement.textContent += text[index];
+            index++;
+            setTimeout(type, 100); // Adjust typing speed here (in milliseconds)
+        }
+    }
+
+    window.onload = function() {
+        type();
+    };
+</script>
+
+</body>
+</html>
