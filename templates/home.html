@@ -43,6 +43,21 @@
             align-items: center;
             padding: 20px;
         }
+        .experience-container{
+            background-color: #86a690;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10px;
+            width: 1200px; 
+            height: auto; 
+            margin: 0 auto;
+        }
+        .gap-space{
+            overflow: hidden;
+            background-color: #fff;
+            padding: 20px 10px;
+        }
         .right {
             flex: 1;
             text-align: center;
@@ -123,7 +138,7 @@
 </div>
 
 <!-- LLNL -->
-<div class="container">
+<div class="experience-container">
     <div class="left">
         <img src="{{ url_for('static', filename='images/llnl.jpg') }}" alt="LLNL Logo" width="200">
     </div>
@@ -137,8 +152,10 @@
     </div>
 </div>
 
+<div class="gap-space"></div>
+
 <!-- BK -->
-<div class="container">
+<div class="experience-container">
     <div class="left">
         <img src="{{ url_for('static', filename='images/bk.jpg') }}" alt="LLNL Logo" width="200">
     </div>
@@ -149,8 +166,10 @@
     </div>
 </div>
 
+<div class="gap-space"></div>
+
 <!-- JLHS -->
-<div class="container">
+<div class="experience-container">
     <div class="left">
         <img src="{{ url_for('static', filename='images/jlhs.jpg') }}" alt="LLNL Logo" width="200">
     </div>
