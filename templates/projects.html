@@ -6,6 +6,20 @@
         body { 
             margin: 0;
             font-family: 'Courier New', monospace;
+            overflow-x: hidden; 
+        }
+        /* Loading In Animation */
+        .content-wrapper {
+            opacity: 0;
+            transform: translateY(50px); 
+            animation: slideUp 1s forwards; 
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0); 
+            }
         }
         .header {
             overflow: hidden;
@@ -99,9 +113,15 @@
   <a href="/" class="logo">Andy's Portfolio</a>
   <div class="header-right">
     <a href="/">Home</a>
+    <a href="/#experience">Experience</a>
+    <a href="/#topskills">Top Skills</a>
+    <a href="/#generalskills">General Skills</a>
     <a class="active" href="/projects">Projects</a>
   </div>
 </div>
+
+<!-- Loading In Animation -->
+<div class="content-wrapper">
 
 <!-- Projects List -->
 <div class="project-list">
@@ -147,19 +167,21 @@
             </div>
         </div>
     </div>
-
+</div>
+<!-- Animation Ending -->
 </div>
 
 <script>
     const text = "My Projects";
     const typingElement = document.getElementById('typing');
+    typingElement.style.fontWeight = 'bold';
     let index = 0;
 
     function type() {
         if (index < text.length) {
             typingElement.textContent += text[index];
             index++;
-            setTimeout(type, 100); // Adjust typing speed here (in milliseconds)
+            setTimeout(type, 100);
         }
     }
 
