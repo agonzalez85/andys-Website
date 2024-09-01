@@ -22,12 +22,15 @@
             }
         }
         .header {
-            overflow: hidden;
+            position: sticky;
+            top: 0;
             background-color: #55685d;
             padding: 20px 10px;
+            z-index: 1000; 
+            width: 100%; 
+            overflow: hidden; 
         }
         .header a {
-            float: left;
             color: black;
             text-align: center;
             padding: 12px;
@@ -174,10 +177,10 @@
     <a href="/" class="logo">Andy's Portfolio</a>
     <div class="header-right">
         <a class="active" href="/">Home</a>
-        <a href="#experience">Experience</a>
+        <a href="/projects">Projects</a>
+        <a href="#experience">Work Experience</a>
         <a href="#topskills">Top Skills</a>
         <a href="#generalskills">General Skills</a>
-        <a href="/projects">Projects</a>
         
     </div>
 </div>
@@ -215,7 +218,7 @@
     <hr style="border: 1px solid #000000; width: 100%;">
     <div id="experience">
         <a href="#top" style="text-decoration: underline; color: black;">
-            <h1 style="font-weight: bold; color: black;">Experience</h1>
+            <h1 style="font-weight: bold; color: black;">Work Experience</h1>
         </a>
     </div>
 </div>
@@ -224,15 +227,16 @@
 <div class="experience-container">
     <div class="left">
         <img src="{{ url_for('static', filename='images/llnl.jpg') }}" alt="LLNL Logo" width="200">
+        <p>Lawrence Livermore National Laboratory</p>
         <p>May 2024 - August 2024</p>
         <p>Livermore, California, United States ~ On-Site</p>
     </div>
     <div class="right">
         <h2>Electrical Engineer Intern</h2>
-        <p>- Prototyped an advanced testing system for a triboelectric nanogenerator circuit, increasing the maximum measurable output voltage by 4000%</p>
-        <p>- Designed and assembled 10 high input impedance voltage buffers and trans-impedance amplifiers for a custom experiment, measuring micro amp current and mega ohm impedances. </p>
-        <p>- Electrical characterization and modeling of display actuators in several display technologies, including liquid crystal displays. </p>
-        <p>- Used a robotic system to conduct over 100 experiments with mechanical actuation of the power harvesting system optimizing power transfer and power efficiency. </p>
+        <p>Prototyped an advanced testing system for a triboelectric nanogenerator circuit, increasing the maximum measurable output voltage by 4000%</p>
+        <p>Designed and assembled 10 high input impedance voltage buffers and trans-impedance amplifiers for a custom experiment, measuring micro amp current and mega ohm impedances. </p>
+        <p>Electrical characterization and modeling of display actuators in several display technologies, including liquid crystal displays. </p>
+        <p>Used a robotic system to conduct over 100 experiments with mechanical actuation of the power harvesting system optimizing power transfer and power efficiency. </p>
         <p>Designed and assembled a custom test box, integrating multiple measurement capabilities and enhancing circuit and user safety. </p>
     </div>
 </div>
@@ -243,13 +247,14 @@
 <div class="experience-container">
     <div class="left">
         <img src="{{ url_for('static', filename='images/bk.jpg') }}" alt="LLNL Logo" width="200">
+        <p>Burger King</p>
         <p>June 2020 - May 2024</p>
         <p>Hayward, California, United States ~ On-Site</p>
     </div>
     <div class="right">
         <h2>Shift Manager</h2>
-        <p>Upheld exceptional customer service standards in fast-paced environments, effectively managing high volumes and addressing inquiries to ensure satisfaction.
-        Optimized operational efficiency by 20% through strategic task delegation, while enhancing cleanliness and safety, during opening responsibilities and team management.</p>
+        <p>Upheld exceptional customer service standards in fast-paced environments, effectively managing high volumes and addressing inquiries to ensure satisfaction. </p>
+        <p>Optimized operational efficiency by 20% through strategic task delegation, while enhancing cleanliness and safety, during opening responsibilities and team management.</p>
     </div>
 </div>
 
@@ -259,6 +264,7 @@
 <div class="experience-container">
     <div class="left">
         <img src="{{ url_for('static', filename='images/jlhs.jpg') }}" alt="LLNL Logo" width="200">
+        <p>James Logan High School Math Department</p>
         <p>September 2020 - May 2021</p>
         <p>Union City, California, United States ~ Hybrid</p>
     </div>
@@ -318,6 +324,17 @@
         <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="LLNL Logo" width="80">
     </div>
     <div class="skills-right">
+        <h2>C++ Programming</h2>
+    </div>
+</div>
+
+<div class="gap-space"></div>
+
+<div class="skills-container">
+    <div class="skills-left">
+        <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="LLNL Logo" width="80">
+    </div>
+    <div class="skills-right">
         <h2>Data Acquisition and Analysis</h2>
     </div>
 </div>
@@ -329,7 +346,7 @@
     <hr style="border: 1px solid #000000; width: 100%;">
     <div id="generalskills">
         <a href="#top" style="text-decoration: underline; color: black;">
-            <h1 style="font-weight: bold; color: black;">More General Skills</h1>
+            <h1 style="font-weight: bold; color: black;">General Skills</h1>
         </a>
     </div>
 </div>
