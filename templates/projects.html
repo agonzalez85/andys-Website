@@ -116,10 +116,10 @@
   <a href="/" class="logo">Andy's Portfolio</a>
   <div class="header-right">
     <a href="/">Home</a>
-    <a href="/#experience">Experience</a>
+    <a class="active" href="/projects">Projects</a>
+    <a href="/#experience">Work Experience</a>
     <a href="/#topskills">Top Skills</a>
     <a href="/#generalskills">General Skills</a>
-    <a class="active" href="/projects">Projects</a>
   </div>
 </div>
 
@@ -138,7 +138,7 @@
         <div class="left">
             <div class="video-container">
                 <video width="50%" height="auto" controls>
-                    <source src="{{ url_for('static', filename='videos/project1.mp4') }}" type="video/mp4">
+                    <source src="{{ url_for('static', filename='videos/amplifer_project.mp4') }}" type="video/mp4" height="auto">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -161,15 +161,50 @@
         </div>
 
         <div class="right">
-            <h3>Project 2</h3>
-            <p>This is my girlfriend who's basically a second project</p>
+            <h3>Arduino Security System</h3>
+            <p>I built this</p>
             <div class="icons">
-                <a href="https://github.com/agonzalez85" target="_blank">
+                <a href="https://github.com/agonzalez85/Arduino_Security_System" target="_blank">
                     <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
                 </a>
             </div>
         </div>
     </div>
+
+     <!-- Project 3 -->
+     <div class="project-container">
+        <div class="left">
+            <img src="{{ url_for('static', filename='images/project2.jpg') }}" alt="aquaventure" width="800">
+        </div>
+
+        <div class="right">
+            <h3>Arduino Security System</h3>
+            <p>I built this</p>
+            <div class="icons">
+                <a href="https://github.com/agonzalez85/Arduino_Security_System" target="_blank">
+                    <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
+                </a>
+            </div>
+        </div>
+    </div>
+
+     <!-- Project 4 -->
+     <div class="project-container">
+        <div class="left">
+            <img src="{{ url_for('static', filename='images/project2.jpg') }}" alt="aquaventure" width="800">
+        </div>
+
+        <div class="right">
+            <h3>Arduino Security System</h3>
+            <p>I built this</p>
+            <div class="icons">
+                <a href="https://github.com/agonzalez85/Arduino_Security_System" target="_blank">
+                    <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
+                </a>
+            </div>
+        </div>
+    </div>
+
 </div>
 <!-- Animation Ending -->
 </div>
