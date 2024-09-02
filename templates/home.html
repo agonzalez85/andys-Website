@@ -137,27 +137,15 @@
             margin: 10px auto;
             padding: 5px;
         }
-        .generalskills-center {
-            display: flex;
-            justify-content: flex-start;
-            text-align: center;
-            align-items: center;
-            padding: 0px 10px;
-            width: 1200px;
-            height: auto;
-            margin: 0 auto;
-            border-radius: 30px;
-            position: relative; 
-            z-index: 2;
-        }
         .generalskills-container {
             display: flex;
+            flex-wrap: wrap;
             background-color:lightgray;
             justify-content: flex-start;
             align-items: center;
             padding: 0px 10px;
             width: 1200px;
-            height: 250px;
+            height: 750px;
             margin: 20px auto 0 auto;
             border-radius: 30px;
             position: relative; 
@@ -173,15 +161,22 @@
             margin: 20px;
             padding: 5px;
         }
-        .generalskills-left img, .generalskills-right img {
+        .generalskills-third {
+            flex: 1;
+            text-align: center;
+            background-color: #55685d;  
+            border-radius: 10px;
+            margin-right: 300px;
+            margin-left: 300px;
+            margin-bottom: 30px;
+            padding: 5px;
+        }
+        .generalskills-left img, .generalskills-right img, .generalskills-third img {
             display: block;
             margin: 5px auto;
             width: 550px;
             height: auto;
             border-radius: 10px;
-        }
-        .generalskills-left, .generalskills-right{
-            margin-top: 200px;
         }
         .icons {
             display: flex;
@@ -399,6 +394,7 @@
 
 <!-- General Skills -->
 <hr style="border: 1px solid #000000; width: 100%;">
+
 <div class="center">
     <div class="title" id="generalskills">
         <a href="#top" style="text-decoration: underline; color: black;">
@@ -406,7 +402,6 @@
         </a>
     </div>
 </div>
-
 
 <div class="generalskills-container">
     <div class="generalskills-left">
@@ -417,22 +412,14 @@
         <img src="{{ url_for('static', filename='images/professional_skills.jpg') }}" alt="Professional Skills">
     </div>
 
-    <!--HOW DO I MAKE THIS IMAGE GO BELOW THE OTHER 2 IMAGES AND CENTERED-->
-
-    <div class="generalskills-center">
+    <div class="generalskills-third">
         <img src="{{ url_for('static', filename='images/programming_languages.jpg') }}" alt="Programming Languages">
     </div>
-
 </div>
 
 <div class="gap-space"></div>
-<div class="gap-space"></div>
-<div class="gap-space"></div>
-<div class="gap-space"></div>
-<div class="gap-space"></div>
 
 <hr style="border: 1px solid #000000; width: 100%;">
-
 
 <!-- Loading Animation End -->
 </div>
