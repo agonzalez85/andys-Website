@@ -76,6 +76,13 @@
             padding: 20px;
             border-bottom: 1px solid #ddd;
         }
+        .project1-container {
+            display: flex;
+            flex-direction: column; /* Change to column layout */
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
         .left {
             flex: 1;
             text-align: center;
@@ -85,6 +92,11 @@
             width: 100%;
             height: auto;
             max-width: 300px;
+        }
+        .left1 img {
+            width: 100%;
+            height: auto;
+            max-width: 1300px;
         }
         .right  {
             flex: 1;
@@ -149,17 +161,27 @@
     </div>
 
     <!-- Project 1 -->
+    <div class="project1-container">
+        <div class="left1">
+            <img src="{{ url_for('static', filename='images/LLNL_poster.jpg') }}" height="auto">
+        </div>
+
+        <div class="right">
+            <h3>Lawrence Livermore National Laboratory Summer Project</h3>
+        </div>
+    </div>
+
+    <!-- Project 2 -->
     <div class="project-container">
         <div class="left">
             <div class="video-container">
-                <video width="50%" height="auto" controls>
+                <video width="70%" height="auto" controls>
                     <source src="{{ url_for('static', filename='videos/amplifier_project.mp4') }}" type="video/mp4" height="auto">
-                    Your browser does not support the video tag.
                 </video>
             </div>
         </div>
         <div class="right">
-            <h3>Amplifier Project</h3>
+            <h3>Audio Amplifier with Audio Visualizer Project</h3>
             <p>This is a video of a DIY Amplifier</p>
             <div class="icons">
                 <a href="https://github.com/agonzalez85" target="_blank">
@@ -169,32 +191,30 @@
         </div>
     </div>
 
-    <!-- Project 2 -->
+    <!-- Project 3 -->
     <div class="project-container">
         <div class="left">
-            <img src="{{ url_for('static', filename='images/project2.jpg') }}" alt="aquaventure" width="800">
-        </div>
-
-        <div class="right">
-            <h3>Arduino Security System</h3>
-            <p>I built this</p>
-            <div class="icons">
-                <a href="https://github.com/agonzalez85/Arduino_Security_System" target="_blank">
-                    <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
-                </a>
+            <div class="video-container">
+                <video width="70%" height="auto" controls>
+                    <source src="{{ url_for('static', filename='videos/security_system_project.mp4') }}" type="video/mp4" height="auto">
+                </video>
             </div>
         </div>
-    </div>
-
-     <!-- Project 3 -->
-     <div class="project-container">
-        <div class="left">
-            <img src="{{ url_for('static', filename='images/project2.jpg') }}" alt="aquaventure" width="800">
-        </div>
-
         <div class="right">
             <h3>Arduino Security System</h3>
-            <p>I built this</p>
+                <p>
+                • Designed and prototyped a multifunctional security system using an Arduino microcontroller, incorporating RFID technology, 
+                    Membrane Switch, Joystick, ultrasonic sensors, RGB LED, and buzzers for real-time intrusion detection and access control
+                </p>
+                <p>
+                • Programmed a user-friendly menu interface on an OLED display using C++, enabling seamless user interaction and configuration 
+                    of system settings
+                </p>
+                <p>
+                • Demonstrated electronics integration expertise by interfacing hardware components, resulting in effective alarm signaling, 
+                    user feedback, and successful integration of RGB LED and sensors
+                </p>
+
             <div class="icons">
                 <a href="https://github.com/agonzalez85/Arduino_Security_System" target="_blank">
                     <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
@@ -206,12 +226,53 @@
      <!-- Project 4 -->
      <div class="project-container">
         <div class="left">
-            <img src="{{ url_for('static', filename='images/project2.jpg') }}" alt="aquaventure" width="800">
+            <div class="video-container">
+                <video width="50%" height="auto" controls>
+                    <source src="{{ url_for('static', filename='videos/amplifier_project.mp4') }}" type="video/mp4" height="auto">
+                </video>
+            </div>
         </div>
 
         <div class="right">
-            <h3>Arduino Security System</h3>
-            <p>I built this</p>
+            <h3>IR Remote Fan Control and RGB LED Lighting System</h3>
+                <p>
+                • Demonstrated electronics expertise by seamlessly integrating IR receivers, RGB LEDs, and Arduino Nano in a user-friendly
+                smart home system, enhancing convenience and automation
+                </p>
+                <p>
+                • Engineered custom Arduino firmware to decode IR signals, enabling intuitive control of household appliances and dynamic RGB
+                    LED lighting for an enhanced user experience
+                </p>
+
+            <div class="icons">
+                <a href="https://github.com/agonzalez85/Arduino_Security_System" target="_blank">
+                    <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
+                </a>
+            </div>
+        </div>
+    </div>
+
+     <!-- Project 5 -->
+     <div class="project-container">
+         <div class="left">
+            <div class="video-container">
+                <video width="50%" height="auto" controls>
+                    <source src="{{ url_for('static', filename='videos/amplifier_project.mp4') }}" type="video/mp4" height="auto">
+                </video>
+            </div>
+        </div>
+
+        <div class="right">
+            <h3>Light-Sensing Clock</h3>
+            <p>
+            • Designed and constructed a distinctive clock with servo motors and a light-sensing photocell for automatic image switching,
+                capturing day-to-night transitions based on ambient light levels
+            </p>
+            <p>
+            • Seamlessly integrated servo motors, Arduino programming, and light sensing to create a functional clock that dynamically
+                portrays the shift from daytime to nighttime through automated arrow positioning
+            </p>
+
             <div class="icons">
                 <a href="https://github.com/agonzalez85/Arduino_Security_System" target="_blank">
                     <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
