@@ -3,17 +3,18 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        /* Global Systels */
         body { 
             margin: 0;
             font-family: 'Courier New', monospace;
             overflow-x: hidden; 
-
             background-image: url('/static/images/background.jpg'); 
             background-repeat: repeat; 
             background-size: 20%; 
             background-position: top left;
             background-attachment: fixed; 
         }
+
         /* Loading In Animation */
         .content-wrapper {
             opacity: 0;
@@ -27,6 +28,8 @@
                 transform: translateY(0); 
             }
         }
+
+        /* Header Styles */
         .header {
             position: sticky;
             top: 0;
@@ -56,6 +59,8 @@
         .header-right {
             float: right;
         }
+
+        /* Background Styles */
         .background {
             background-image: url(/static/images/background.jpg); 
             background-repeat: repeat;
@@ -64,6 +69,8 @@
             background-position: top left; 
             background-attachment: scroll; 
         }
+
+        /* Project Container Styles */
         .center {
             flex: 1;
             text-align: center;
@@ -78,7 +85,7 @@
         }
         .project1-container {
             display: flex;
-            flex-direction: column; /* Change to column layout */
+            flex-direction: column; 
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
@@ -86,6 +93,11 @@
         .left {
             flex: 1;
             text-align: center;
+        }
+
+        .gap-space{
+            overflow: hidden;
+            padding: 20px 20px;
         }
         
         .left img {
@@ -102,6 +114,8 @@
             flex: 1;
             text-align: center;
         }
+
+        /* Icons Styles */
         .icons {
           display: flex;
           justify-content: center;
@@ -110,6 +124,8 @@
         .icons a {
             margin-left: 10px;
         }
+
+        /* Video Container Styles */
         .video-container {
             flex: 1;
             text-align: center; /* Align video to the right */
@@ -118,21 +134,72 @@
             max-width: 100%;
             height: auto;
         }
+
+        /* Typing Animation Styles */
         #typing {
             font-family: 'Courier New', monospace;
             font-size: 24px;
             white-space: pre;
             border-right: 2px solid black;
             display: inline-block;
+            animation: blink 0.5s step-end infinite alternate;
         }
+
         @keyframes blink {
             50% {
                 border-color: transparent;
             }
         }
-        #typing {
-            animation: blink 0.5s step-end infinite alternate;
+
+        /* 3D Container Styles */
+        #container3D {
+            width: 90%;
+            height: 400px; /* Adjust as needed */
+            align-items: center;
         }
+
+        /* Model Styles */
+        .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -151,141 +218,168 @@
 
 <!-- Loading In Animation -->
 <div class="content-wrapper">
-
-<div class="background"></div>
-<!-- Projects List -->
-<div class="project-list">
-    <!-- Project Title -->
-    <div class="center">
-        <div id="typing"></div>
-    </div>
-
-    <!-- Project 1 -->
-    <div class="project1-container">
-        <div class="left1">
-            <img src="{{ url_for('static', filename='images/LLNL_poster.jpg') }}" height="auto">
+    <div class="background"></div>
+    
+    <!-- Projects List -->
+    <div class="project-list">
+        <!-- Project Title -->
+        <div class="center">
+            <div id="typing"></div>
         </div>
 
-        <div class="right">
-            <h3>Lawrence Livermore National Laboratory Summer Project</h3>
-        </div>
-    </div>
+        <!-- Project 1 -->
+        <div class="project1-container">
+            <div class="left1">
+                <img src="{{ url_for('static', filename='images/LLNL_poster.jpg') }}" height="auto">
+            </div>
 
-    <!-- Project 2 -->
-    <div class="project-container">
-        <div class="left">
-            <div class="video-container">
+            <div class="right">
+                <h3>Lawrence Livermore National Laboratory Summer Project</h3>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-container">
+            <div class="left">
+                <div class="video-container">
+                    <video width="40%" height="auto" controls>
+                        <source src="{{ url_for('static', filename='videos/audio_amplifier_project.mp4') }}" type="video/mp4" height="auto">
+                    </video>
+                    <img id="expandableImage" src="{{ url_for('static', filename='images/audio_project.jpg') }}" alt="Audio Project"
+                    style="width: 53%; max-width: none; height: auto;">
+                </div>
+            </div>
+            
+            <div class="right">
+                <h3>Audio Amplifier with Integrated 7-Band Audio Visualizer</h3>
+                    <p>
+                    • Designed and fabricated a custom PCB audio amplifier with a real-time 7-band audio visualizer, integrating an Arduino Nano 
+                    and MSGEQ7 frequency analyzer chip 
+                    </p>
+                    <p>
+                    • Programmed real-time audio spectrum analysis and visualization on an OLED display, using C++ programming and I2C communication 
+                    protocol, showcasing proficiency in embedded systems and digital signal processing 
+                    </p>
+                    <p>
+                    • Engineered a stereo audio system with LM386N-4 amplifiers, and NE5532P buffer, incorporating user-controlled volume, gain, 
+                    and bass boost functionality 
+                    </p>
+                    <p>
+                    • Achieved high-quality audio output with minimal noise and distortion through careful component selection, and strategic PCB layout 
+                    </p>
+                
+                <div class="icons">
+                    <a href="https://github.com/agonzalez85/Audio-Amplifier-with-Audio-Visualizer" target="_blank">
+                        <img src="{{ url_for('static', filename='images/code_icon.jpg') }}" alt="GitHub" width="250">
+                    </a>
+
+                    <div class="gap-space"></div>
+
+                    <a href="{{ url_for('pcb_model') }}">
+                        <img src="{{ url_for('static', filename='images/3d_icon.jpg') }}" alt="3D" width="220">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-container">
+            <div class="left">
+                <div class="video-container">
+                    <video width="40%" height="auto" controls>
+                        <source src="{{ url_for('static', filename='videos/security_system_project.mp4') }}" type="video/mp4" height="auto">
+                    </video>
+                </div>
+            </div>
+            <div class="right">
+                <h3>Arduino Security System</h3>
+                    <p>
+                    • Designed and prototyped a multifunctional security system using an Arduino microcontroller, incorporating RFID technology, 
+                        Membrane Switch, Joystick, ultrasonic sensors, RGB LED, and buzzers for real-time intrusion detection and access control
+                    </p>
+                    <p>
+                    • Programmed a user-friendly menu interface on an OLED display using C++, enabling seamless user interaction and configuration 
+                        of system settings
+                    </p>
+                    <p>
+                    • Demonstrated electronics integration expertise by interfacing hardware components, resulting in effective alarm signaling, 
+                        user feedback, and successful integration of RGB LED and sensors
+                    </p>
+
+                <div class="icons">
+                    <a href="https://github.com/agonzalez85/Arduino_Security_System" target="_blank">
+                        <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-container">
+            <div class="left">
+                <div class="video-container">
+                    <video width="40%" height="auto" controls>
+                        <source src="{{ url_for('static', filename='videos/clock_project.mp4') }}" type="video/mp4" height="auto">
+                    </video>
+                </div>
+            </div>
+
+            <div class="right">
+                <h3>Light-Sensing Clock</h3>
+                <p>
+                • Designed and constructed a distinctive clock with servo motors and a light-sensing photocell for automatic image switching,
+                    capturing day-to-night transitions based on ambient light levels
+                </p>
+                <p>
+                • Seamlessly integrated servo motors, Arduino programming, and light sensing to create a functional clock that dynamically
+                    portrays the shift from daytime to nighttime through automated arrow positioning
+                </p>
+
+                <div class="icons">
+                    <a href="https://github.com/agonzalez85/Light-Sensing-Clock" target="_blank">
+                        <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-container">
+            <div class="left">
+                <div class="video-container">
                 <video width="40%" height="auto" controls>
-                    <source src="{{ url_for('static', filename='videos/amplifier_project.mp4') }}" type="video/mp4" height="auto">
-                </video>
+                        <source src="{{ url_for('static', filename='videos/fan_project.mp4') }}" type="video/mp4" height="auto">
+                    </video>
+                    <video width="40%" height="auto" controls>
+                        <source src="{{ url_for('static', filename='videos/rgb_project.mp4') }}" type="video/mp4" height="auto">
+                    </video>
+                </div>
             </div>
-        </div>
-        <div class="right">
-            <h3>Audio Amplifier with Audio Visualizer Project</h3>
-            <p>This is a video of a DIY Amplifier</p>
-            <div class="icons">
-                <a href="https://github.com/agonzalez85" target="_blank">
-                    <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
-                </a>
-            </div>
-        </div>
-    </div>
 
-    <!-- Project 3 -->
-    <div class="project-container">
-        <div class="left">
-            <div class="video-container">
-                <video width="40%" height="auto" controls>
-                    <source src="{{ url_for('static', filename='videos/security_system_project.mp4') }}" type="video/mp4" height="auto">
-                </video>
-            </div>
-        </div>
-        <div class="right">
-            <h3>Arduino Security System</h3>
-                <p>
-                • Designed and prototyped a multifunctional security system using an Arduino microcontroller, incorporating RFID technology, 
-                    Membrane Switch, Joystick, ultrasonic sensors, RGB LED, and buzzers for real-time intrusion detection and access control
-                </p>
-                <p>
-                • Programmed a user-friendly menu interface on an OLED display using C++, enabling seamless user interaction and configuration 
-                    of system settings
-                </p>
-                <p>
-                • Demonstrated electronics integration expertise by interfacing hardware components, resulting in effective alarm signaling, 
-                    user feedback, and successful integration of RGB LED and sensors
-                </p>
+            <div class="right">
+                <h3>IR Remote Fan Control and RGB LED Lighting System</h3>
+                    <p>
+                    • Demonstrated electronics expertise by seamlessly integrating IR receivers, RGB LEDs, and Arduino Nano in a user-friendly
+                    smart home system, enhancing convenience and automation
+                    </p>
+                    <p>
+                    • Engineered custom Arduino firmware to decode IR signals, enabling intuitive control of household appliances and dynamic RGB
+                        LED lighting for an enhanced user experience
+                    </p>
 
-            <div class="icons">
-                <a href="https://github.com/agonzalez85/Arduino_Security_System" target="_blank">
-                    <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
-                </a>
+                <div class="icons">
+                    <a href="https://github.com/agonzalez85/IR-Controlled-Fan-RGB-System" target="_blank">
+                        <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-
-     <!-- Project 4 -->
-     <div class="project-container">
-        <div class="left">
-            <div class="video-container">
-               <video width="40%" height="auto" controls>
-                    <source src="{{ url_for('static', filename='videos/IR_project.mp4') }}" type="video/mp4" height="auto">
-                </video>
-            </div>
-        </div>
-
-        <div class="right">
-            <h3>IR Remote Fan Control and RGB LED Lighting System</h3>
-                <p>
-                • Demonstrated electronics expertise by seamlessly integrating IR receivers, RGB LEDs, and Arduino Nano in a user-friendly
-                smart home system, enhancing convenience and automation
-                </p>
-                <p>
-                • Engineered custom Arduino firmware to decode IR signals, enabling intuitive control of household appliances and dynamic RGB
-                    LED lighting for an enhanced user experience
-                </p>
-
-            <div class="icons">
-                <a href="https://github.com/agonzalez85/Arduino_Security_System" target="_blank">
-                    <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
-                </a>
-            </div>
-        </div>
-    </div>
-
-     <!-- Project 5 -->
-     <div class="project-container">
-         <div class="left">
-            <div class="video-container">
-                <video width="40%" height="auto" controls>
-                    <source src="{{ url_for('static', filename='videos/clock_project.mp4') }}" type="video/mp4" height="auto">
-                </video>
-            </div>
-        </div>
-
-        <div class="right">
-            <h3>Light-Sensing Clock</h3>
-            <p>
-            • Designed and constructed a distinctive clock with servo motors and a light-sensing photocell for automatic image switching,
-                capturing day-to-night transitions based on ambient light levels
-            </p>
-            <p>
-            • Seamlessly integrated servo motors, Arduino programming, and light sensing to create a functional clock that dynamically
-                portrays the shift from daytime to nighttime through automated arrow positioning
-            </p>
-
-            <div class="icons">
-                <a href="https://github.com/agonzalez85/Arduino_Security_System" target="_blank">
-                    <img src="{{ url_for('static', filename='images/code.jpg') }}" alt="GitHub" width="100">
-                </a>
-            </div>
-        </div>
-    </div>
-
 </div>
-<!-- Animation Ending -->
-</div>
 
+<!-- Animation Script -->
 <script>
+    // Typing animation
     const text = "My Projects";
     const typingElement = document.getElementById('typing');
     typingElement.style.fontWeight = 'bold';
@@ -304,5 +398,49 @@
     };
 </script>
 
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="expandedImage">
+</div>
+
+<!-- Pop up picture script -->
+<script>
+    //Image modal functionality
+    var img = document.getElementById("expandableImage");
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("expandedImage");
+    var span = document.getElementsByClassName("close")[0];
+    
+    img.onclick = function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        document.body.style.overflow = "hidden"; // Prevent scrolling on the background
+    }
+    
+    span.onclick = function() {
+        closeModal();
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+    
+    function closeModal() {
+        modal.style.display = "none";
+        modalImg.src = "";
+        document.body.style.overflow = "auto"; // Re-enable scrolling
+    }
+    
+    // Debugging
+    modalImg.onload = function() {
+        console.log("Modal image loaded successfully");
+    }
+    
+    modalImg.onerror = function() {
+        console.error("Failed to load modal image", this.src);
+    }
+    </script>
 </body>
 </html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3D PCB Model</title>
+    <style>
+
+        /* Global Styles */
+        body { 
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden; 
+
+            background-image: url('/static/images/background.jpg'); 
+            background-repeat: repeat; 
+            background-size: 20%; 
+            background-position: top left;
+            background-attachment: fixed; 
+        }
+
+        /* Loading In Animation */
+        .content-wrapper {
+            opacity: 0;
+            transform: translateY(50px); 
+            animation: slideUp 1s forwards; 
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0); 
+            }
+        }
+
+        /* Header Styles */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: #55685d;
+            padding: 20px 10px;
+            z-index: 1000; 
+            width: 100%; 
+            overflow: hidden; 
+        }
+        .header a {
+            color: black;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px; 
+            line-height: 25px;
+            border-radius: 4px;
+        }
+        .header a.logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .header a:hover {
+            background-color: white;
+            color: black;
+        }
+        .header-right {
+            float: right;
+        }
+
+        /* Background Styles */
+        .background {
+            background-image: url(/static/images/background.jpg); 
+            background-repeat: repeat;
+            background-size: 10%; 
+            background-color: (0.5);
+            background-position: top left; 
+            background-attachment: scroll; 
+        }
+
+        /* Utility Classes */
+        .center {
+            flex: 1;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .project-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Typing Animiation */
+        #typing {
+            font-family: 'Courier New', monospace;
+            font-size: 24px;
+            white-space: pre;
+            border-right: 2px solid black;
+            display: inline-block;
+            animation: blink 0.5s step-end infinite alternate;
+
+        }
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* 3D Container */
+        #container3D {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Loading Screen Animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Website Header -->
+    <div class="header">
+        <a href="/" class="logo">Andy's Portfolio</a>
+        <div class="header-right">
+        <a href="/">Home</a>
+        <a class="active" href="/projects">Projects</a>
+        <a href="/#experience">Work Experience</a>
+        <a href="/#topskills">Top Skills</a>
+        <a href="/#generalskills">General Skills</a>
+        </div>
+    </div>
+
+    <div class="background"></div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" style="position: fixed; top: 65px; left: 0; right: 0; bottom: 0; 
+    background-color: rgba(255, 255, 255, 0.8); display: flex; flex-direction: column; justify-content: center; 
+    align-items: center; font-size: 18px; z-index: 999; font-family: 'Courier New', monospace;">
+        <div style="width: 40px; height: 40px; border: 4px solid #55685d; border-top: 4px solid #ffffff; 
+        border-radius: 50%; animation: spin 1s linear infinite;"></div>
+        <div style="margin-top: 20px;">Loading...</div>
+    </div>
+
+    <!-- 3D Model Container -->
+    <div id="container3D"></div>
+
+    <!-- 3D Model Script -->
+    <script type="module">
+
+        //Import the THREE.js library
+        import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
+        import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
+        import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+
+        //Set up the scene, camera, and renderer
+        const container = document.getElementById("container3D");
+        const scene = new THREE.Scene();
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
+
+        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 100);
+        camera.position.set(0, 30, 20); 
+        camera.lookAt(0, 0, 0);
+        scene.background = new THREE.Color(0xFFFFFF); //white background
+
+        renderer.shadowMap.enabled = false;
+
+        //Global Variables
+        let object;
+        let controls;
+        let objToRender = 'pcb';
+
+        //Set up loading manager
+        const loadingScreen = document.getElementById('loading-screen');
+        const loadingManager = new THREE.LoadingManager();
+        loadingManager.onProgress = function(url, loaded, total) 
+        {
+            const progress = (loaded / total * 100).toFixed(2);
+            loadingScreen.querySelector('div:last-child').textContent = `Loading...`;
+        }
+        loadingManager.onLoad = function() {
+            loadingScreen.style.display = 'none';
+        }
+
+        //Load the 3D Model
+        const loader = new GLTFLoader(loadingManager);
+        loader.load(
+        `./static/models/Audio_Amplifier.gltf`,
+        function (gltf) 
+        {
+            object = gltf.scene;
+            scene.add(object);
+            console.log('Model loaded successfully');
+
+            // Center and scale the model
+            const box = new THREE.Box3().setFromObject(object);
+            const center = box.getCenter(new THREE.Vector3());
+            object.position.sub(center);
+            const scale = 3; 
+            object.scale.set(scale, scale, scale);
+
+            // Fit camera to object
+            fitCameraToObject(camera, object, 3.5);
+        },
+        function (xhr) {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+        },
+        function (error) {
+            console.error(error);
+        }
+        );
+
+        //Function to fit camera to object
+        function fitCameraToObject(camera, object, offset)     
+        {
+            offset = offset || 2.5; 
+            const boundingBox = new THREE.Box3().setFromObject(object);
+            const center = boundingBox.getCenter(new THREE.Vector3());
+            const size = boundingBox.getSize(new THREE.Vector3());
+            const maxDim = Math.max(size.x, size.y);
+            const fov = camera.fov * (Math.PI / 180);
+            let cameraZ = Math.abs(maxDim / 2 * Math.tan(fov * 2));
+            cameraZ *= offset;
+            camera.position.set(0, cameraZ, 0);
+            camera.near = cameraZ / 100;
+            camera.far = cameraZ * 100;
+            camera.updateProjectionMatrix();
+            camera.lookAt(center);
+            
+            if (controls) {
+                controls.target.copy(center);
+                controls.maxDistance = cameraZ * 2;
+                controls.update();
+            }
+        }
+
+        //Add the renderer to the DOM
+        document.getElementById("container3D").appendChild(renderer.domElement);
+
+        // Add lights to the scene
+        const topLight = new THREE.DirectionalLight(0xffffff, 1);
+        topLight.position.set(0, 5, 0);
+        scene.add(topLight);
+
+        const ambientLight = new THREE.AmbientLight(0xffffff, 2);
+        scene.add(ambientLight);
+
+        const directionalLight1 = new THREE.DirectionalLight(0xffffff, 2);
+        directionalLight1.position.set(1, 1, 1);
+        scene.add(directionalLight1);
+
+        const directionalLight2 = new THREE.DirectionalLight(0xffffff, 2);
+        directionalLight2.position.set(-1, 1, 1).normalize();
+        scene.add(directionalLight2);
+
+        const directionalLight3 = new THREE.DirectionalLight(0xffffff, 2);
+        directionalLight3.position.set(0, -1, 1).normalize();
+        scene.add(directionalLight3);
+
+        const directionalLight4 = new THREE.DirectionalLight(0xffffff, 2);
+        directionalLight4.position.set(0, 0, -1).normalize();
+        scene.add(directionalLight4);
+
+        const hemisphereLight = new THREE.HemisphereLight(0xffffbb, 0x080820, 2);
+        scene.add(hemisphereLight);
+
+        //Add Orbit Controls
+        if (objToRender === "pcb") {
+            controls = new OrbitControls(camera, renderer.domElement);
+        }
+
+        //Animation Loop
+        function animate() 
+        {
+            requestAnimationFrame(animate);
+            if (controls) controls.update();
+            renderer.render(scene, camera);
+        }
+
+        //Handle window resizing
+        window.addEventListener("resize", function () {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        //Start the 3D rendering
+        animate();
+    </script>
+</body>
+</html>
