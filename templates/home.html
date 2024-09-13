@@ -246,12 +246,12 @@
                     <a href="https://github.com/agonzalez85" target="_blank">
                         <img src="{{ url_for('static', filename='images/github.jpg') }}" alt="GitHub" width="60">
                     </a>
-                    <a href="https://www.linkedin.com/in/andygonzalez85/" target="_blank">
+                    <a href="https://www.linkedin.com/in/andygonzalez85/" target="_blank" style="display: inline-block; margin-right: 10px;">
                         <img src="{{ url_for('static', filename='images/linkedin.jpg') }}" alt="LinkedIn" width="60">
                     </a>
-                    <a href="mailto:andygonzalez53684@gmail.com?subject=Hello%20Arely&body=I%20would%20like%20to%20connect%20with%20you.">
-                        <img src="{{ url_for('static', filename='images/email.jpg') }}" alt="Email" width="60">
-                    </a>
+                    <div onclick="copyEmail()" style="cursor: pointer;">
+                        <img src="{{ url_for('static', filename='images/email.jpg') }}" alt="Copy Email" width="60">
+                    </div>
                     <a href="https://drive.google.com/file/d/1EpF8jYqeQAwmhc3YnI0tfClbRj-msbv9/view?usp=sharing" target="_blank">
                         <img src="{{ url_for('static', filename='images/resume_icon.jpg') }}" alt="Resume" width="48">
                     </a>
@@ -446,5 +446,18 @@
             type();
         };
     </script>
+
+    <!-- Email Copying Script -->
+    <script>
+    function copyEmail() {
+        const email = "andygonzalez53684@gmail.com";
+        navigator.clipboard.writeText(email).then(function() {
+            alert("Email address copied to clipboard!");
+        }, function(err) {
+            console.error('Could not copy text: ', err);
+        });
+    }
+    </script>
+
 </body>
 </html>
