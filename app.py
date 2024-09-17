@@ -26,4 +26,4 @@ def serve_static(filename):
 
 # Run the application if this script is executed directly
 if __name__ == '__main__':
-    app.run
+    app.run(debug=False)
