@@ -252,11 +252,8 @@
                     <div onclick="copyEmail()" style="cursor: pointer;">
                         <img src="{{ url_for('static', filename='images/email.jpg') }}" alt="Copy Email" width="60">
                     </div>
-                    <a href="https://drive.google.com/file/d/1koK1n1mvUuHASij7gfwQ34kagzlsekS0/view?usp=sharing" target="_blank">
+                    <a href="https://drive.google.com/file/d/1ac7qj6LM2BmchiWH42tw-yXv0NqoSiQu/view?usp=sharing" target="_blank">
                         <img src="{{ url_for('static', filename='images/resume_icon.jpg') }}" alt="Resume" width="48">
-                    </a>
-                    <a href="https://drive.google.com/file/d/1WMTH1TivfD4uJ8aKxAa7xs1Je_v7O-p1/view?usp=sharing" target="_blank">
-                        <img src="{{ url_for('static', filename='images/cv_icon.jpg') }}" alt="CV" width="48">
                     </a>
                 </div>
         </div>
@@ -280,21 +277,49 @@
         </div>
     </div>
 
+    <!-- UCLA Lab Experience -->
+    <div class="experience-container">
+        <div class="left">
+            <img src="{{ url_for('static', filename='images/i2bl.jpg') }}" alt="I2BL Logo" width="200">
+            <p><b>Interconnected & Integrated Bioelectronics UCLA Lab</b></p>
+            <p>September 2024 - Present</p>
+            <p>Los Angeles, California, United States ~ On-site</p>
+        </div>
+        <div class="right">
+            <h2>Undergraduate Researcher</h2>
+            <p><b>Primary Duties</b></p>
+            <p>PCB Design and Optimization, Circuit Testing and Analysis, Simulation and Modeling, Prototype Developtment and Experimental Validation</p>
+
+            <p><b>Tasks Performed</b></p>
+            <p>• Optimize implantable tag designs using EAGLE software, enhancing signal integrity and system gain response for emulated biosensor inputs</p>
+            <p>• Conduct comprehensive circuit testing and LTspice simulations for accurate modeling and performance prediction of bioelectronic systems </p>
+            <p>• Collaborate with team members to prototype, iterate, and refine PCB designs for implantable bioelectronic devices, applying soldering techniques and design modifications </p>
+            <p>• Analyze data, document procedures, and prepare technical reports to validate system performance and communicate research findings to the team and supervisors </p>
+    
+        </div>
+    </div>
+
+    <div class="gap-space"></div>
+
     <!-- LLNL Experience -->
     <div class="experience-container">
         <div class="left">
             <img src="{{ url_for('static', filename='images/llnl.jpg') }}" alt="LLNL Logo" width="200">
-            <p>Lawrence Livermore National Laboratory</p>
+            <p><b>Lawrence Livermore National Laboratory</b></p>
             <p>May 2024 - August 2024</p>
             <p>Livermore, California, United States ~ On-Site</p>
         </div>
         <div class="right">
             <h2>Electrical Engineer Intern</h2>
-            <p>• Prototyped an advanced testing system for a triboelectric nanogenerator circuit, increasing the maximum measurable output voltage by 4000%</p>
-            <p>• Designed and assembled 10 high input impedance voltage buffers and trans-impedance amplifiers for a custom experiment, measuring micro amp current and mega ohm impedances. </p>
-            <p>• Electrical characterization and modeling of display actuators in several display technologies, including liquid crystal displays. </p>
-            <p>• Used a robotic system to conduct over 100 experiments with mechanical actuation of the power harvesting system optimizing power transfer and power efficiency. </p>
-            <p>• Designed and assembled a custom test box, integrating multiple measurement capabilities and enhancing circuit and user safety. </p>
+            <p><b>Primary Duties</b></p>
+            <p>Circuit Design and Prototyping, Electrical Characterization and Testing, Experimental System Development, Data Analysis and Optimization </p>
+
+            <p><b>Tasks Performed</b></p>
+            <p>• Prototyped an advanced testing system for triboelectric nanogenerator circuits, increasing maximum measurable voltage by 4000% and enabling accurate micro-amp current and mega-ohm impedance measurements</p>
+            <p>• Designed and assembled high input impedance voltage buffers and trans-impedance amplifiers, integrating multiple measurement capabilities for enhanced circuit performance and user safety </p>
+            <p>• Conducted electrical characterization of display actuators in liquid crystal and electrophoretic display technologies, analyzing performance parameters and operational characteristics </p>
+            <p>• Operated robotic systems to perform over 100 experiments on power harvesting systems, optimizing power transfer efficiency and analyzing key performance factors </p>
+            <p>• Collaborated with interdisciplinary teams on power harvesting nanogenerator project, presenting bi-weekly presenations and contributing to the lab's research knowledge base through comprehensive technical documentation </p>
         </div>
     </div>
 
@@ -304,7 +329,7 @@
     <div class="experience-container">
         <div class="left">
             <img src="{{ url_for('static', filename='images/bk.jpg') }}" alt="LLNL Logo" width="200">
-            <p>Burger King</p>
+            <p><b>Burger King</b></p>
             <p>June 2020 - May 2024</p>
             <p>Hayward, California, United States ~ On-Site</p>
         </div>
@@ -321,7 +346,7 @@
     <div class="experience-container">
         <div class="left">
             <img src="{{ url_for('static', filename='images/jlhs.jpg') }}" alt="LLNL Logo" width="200">
-            <p>James Logan High School Math Department</p>
+            <p><b>James Logan High School Math Department</b></p>
             <p>September 2020 - May 2021</p>
             <p>Union City, California, United States ~ Hybrid</p>
         </div>
@@ -356,7 +381,7 @@
 
     <div class="skills-container">
         <div class="skills-left">
-            <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="LLNL Logo" width="80">
+            <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="Diamond Logo" width="80">
         </div>
         <div class="skills-right">
             <h2>Circuit Prototyping and Testing</h2>
@@ -367,10 +392,10 @@
 
     <div class="skills-container">
         <div class="skills-left">
-            <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="LLNL Logo" width="80">
+            <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="Diamond Logo" width="80">
         </div>
         <div class="skills-right">
-            <h2>KiCAD</h2>
+            <h2>PCB Assembly</h2>
         </div>
     </div>
 
@@ -378,7 +403,7 @@
 
     <div class="skills-container">
         <div class="skills-left">
-            <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="LLNL Logo" width="80">
+            <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="Diamond Logo" width="80">
         </div>
         <div class="skills-right">
             <h2>C++ Programming</h2>
@@ -389,7 +414,7 @@
 
     <div class="skills-container">
         <div class="skills-left">
-            <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="LLNL Logo" width="80">
+            <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="Diamond Logo" width="80">
         </div>
         <div class="skills-right">
             <h2>Arduino</h2>
