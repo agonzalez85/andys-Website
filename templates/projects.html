@@ -33,7 +33,7 @@
         .header {
             position: sticky;
             top: 0;
-            background-color: #55685d;
+            background-color: rgba(85, 104, 93, 0.7);
             padding: 20px 10px;
             z-index: 1000; 
             width: 100%; 
@@ -99,7 +99,7 @@
             overflow: hidden;
             padding: 20px 20px;
         }
-        
+
         .left img {
             width: 100%;
             height: auto;
@@ -112,7 +112,7 @@
         }
         .right  {
             flex: 1;
-            text-align: center;
+            text-align: justify;
         }
 
         /* Icons Styles */
@@ -228,9 +228,56 @@
         </div>
 
         <!-- Project 1 -->
+        <div class="project-container">
+            <!-- Left: Poster -->
+            <div class="left">
+                <img class="expandableImage" src="{{ url_for('static', filename='images/i2bl_poster.jpg') }}" alt="I2BL Project Poster" 
+                    style="width: 100%; max-width: 550px; height: auto; border-radius: 10px;">
+            </div>
+
+            <!-- Right: Abstract + Links -->
+            <div class="right">
+                <h3>Interconnected and Integrated Bioelectronics Lab Research Project</h3>
+                <h4 style="margin-top: -5px; margin-bottom: 10px; font-weight: bold; color: #333;">
+                    Abstract
+                </h4>
+                <p style="text-align: justify;">
+                    Electrolyte imbalances are critical factors in major organ failure, contributing to an average of 13 deaths daily in the United States. 
+                    Thus, developing an accurate, real-time in-body biochemical sensing system is vital for effective disease management and early organ failure detection. 
+                    Current methodologies' limitations are: 1) blood draws are time-consuming, one-time measurements; 2) wearable biosensors have detection delays with limited sensing capabilities; 
+                    and 3) current implantables are bulky, battery-powered, with limited selectivity. We are developing a battery-free, implantable biochemical sensing system designed for localized organ monitoring. 
+                    The system includes a flexible wearable paired with a passive implantable that uses inductive coupling for wireless power transfer and data transmission. We were previously challenged with low sensitivity, 
+                    poor sensor performance, and vulnerability to distance-induced distortions on the signal. Here, we introduce an optimized dual-pair system that accurately measures the sensor response by removing baseline 
+                    variations caused by distance distortions. Our approach leverages a reference implantable to reject environmental variations, thereby enabling isolation of the sensor response. 
+                    The implantable was redesigned to minimize sensor noise, achieving a 4x improvement in signal-to-noise ratio. Mathematically informed impedance matching enhanced the system's sensitivity by 340%, 
+                    and the wearable was further miniaturized by 32%. Mathematical modeling paired with a distance rejection algorithm provided accurate vertical distance prediction and enabled the back-calculation 
+                    of the analyte concentration from the sensor. This work validates a low-noise, high-sensitivity wireless sensing system that resolves a critical barrier by removing environmental variations from 
+                    sensor readings, enabling accurate in-body concentration determination.
+                </p>
+
+                <div class="icons">
+                    <!-- Presentation Slides -->
+                    <a href="https://personalmicrosoftsoftware0-my.sharepoint.com/:p:/g/personal/andyg85_personalmicrosoftsoftware_ucla_edu/ERTXsV1_1xBCjl1sJMYMYsgBTk0O_lN2EQhHbT3bcaIHPg?e=57Ilod" target="_blank">
+                        <img src="{{ url_for('static', filename='images/slides_icon.jpg') }}" 
+                            alt="Slides Link" width="160">
+                    </a>
+
+                    <div class="gap-space"></div>
+
+                    <!-- Presentation Video -->
+                    <a href="https://example.com/video" target="_blank">
+                        <img src="{{ url_for('static', filename='images/presentation_icon.jpg') }}" 
+                            alt="Video Link" width="250">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
         <div class="project1-container">
-            <div class="left1">
-                <img src="{{ url_for('static', filename='images/LLNL_poster.jpg') }}" height="auto">
+            <div class="left">
+                <img class="expandableImage" src="{{ url_for('static', filename='images/LLNL_poster.jpg') }}" alt="LLNL Project Poster" 
+                    style="width: 100%; max-width: 1100px; height: auto; border-radius: 10px;">
             </div>
 
             <div class="right">
@@ -238,15 +285,54 @@
             </div>
         </div>
 
-        <!-- Project 2 -->
+        <!-- Project 3 -->
+        <div class="project-container">
+            <div class="left">
+                <img class="expandableImage" src="{{ url_for('static', filename='images/transmitter.jpeg') }}" alt="WRAP Transmitter Project" 
+                    style="width: 48%; height: auto; margin-right: 2%;">
+                <img class="expandableImage" src="{{ url_for('static', filename='images/rendered_transmitter.jpeg') }}" alt="WRAP Receiver Project" 
+                    style="width: 48%; height: auto;">
+            </div>
+            
+            <div class="right">
+                <h3>IEEE Wireless RF Project</h3>
+                    <p>
+                    • Engineered and optimized RF circuits for a 27 MHz wireless communication system, including designing oscillators, amplifiers,
+                    and mixers using bipolar transistors 
+                    </p>
+                    <p>
+                    • Designed and laid out RF transmitter and receiver boards using KiCAD, validating circuit performance through LTspice and
+                    system performance through MATLAB simulations
+                    </p>
+                    <p>
+                    • Integrated RF components and tested system performance with RF bench equipment, such as oscilloscopes and spectrum
+                    analyzers, to fine-tune signal integrity and system performance
+                    </p>
+
+                
+                <div class="icons">
+                    <a href="https://github.com/agonzalez85/Audio-Amplifier-with-Audio-Visualizer" target="_blank">
+                        <img src="{{ url_for('static', filename='images/schematic_icon.jpg') }}" alt="Schematic" width="220">
+                    </a>
+
+                    <div class="gap-space"></div>
+
+                    <a href="{{ url_for('pcb_model') }}">
+                        <img src="{{ url_for('static', filename='images/3d_icon.jpg') }}" alt="3D" width="220">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 4 -->
         <div class="project-container">
             <div class="left">
                 <div class="video-container">
                     <video width="40%" height="auto" controls>
                         <source src="{{ url_for('static', filename='videos/audio_amplifier_project.mp4') }}" type="video/mp4" height="auto">
                     </video>
-                    <img id="expandableImage" src="{{ url_for('static', filename='images/audio_project.jpg') }}" alt="Audio Project"
-                    style="width: 53%; max-width: none; height: auto;">
+                    <img class="expandableImage" src="{{ url_for('static', filename='images/audio_project.jpg') }}" alt="Audio Project"
+                        style="width: 53%; max-width: none; height: auto;">
                 </div>
             </div>
             
@@ -282,7 +368,7 @@
             </div>
         </div>
 
-        <!-- Project 3 -->
+        <!-- Project 5 -->
         <div class="project-container">
             <div class="left">
                 <div class="video-container">
@@ -314,7 +400,7 @@
             </div>
         </div>
 
-        <!-- Project 4 -->
+        <!-- Project 6 -->
         <div class="project-container">
             <div class="left">
                 <div class="video-container">
@@ -343,7 +429,7 @@
             </div>
         </div>
 
-        <!-- Project 5 -->
+        <!-- Project 7 -->
         <div class="project-container">
             <div class="left">
                 <div class="video-container">
@@ -406,32 +492,35 @@
 <!-- Pop up picture script -->
 <script>
     //Image modal functionality
-    var img = document.getElementById("expandableImage");
-    var modal = document.getElementById("imageModal");
-    var modalImg = document.getElementById("expandedImage");
-    var span = document.getElementsByClassName("close")[0];
-    
+var imgs = document.querySelectorAll(".expandableImage");
+var modal = document.getElementById("imageModal");
+var modalImg = document.getElementById("expandedImage");
+var span = document.getElementsByClassName("close")[0];
+
+imgs.forEach(function(img) {
     img.onclick = function() {
         modal.style.display = "block";
         modalImg.src = this.src;
-        document.body.style.overflow = "hidden"; // Prevent scrolling on the background
+        document.body.style.overflow = "hidden"; // Prevent scrolling
     }
-    
-    span.onclick = function() {
+});
+
+span.onclick = function() {
+    closeModal();
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
         closeModal();
     }
-    
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            closeModal();
-        }
-    }
-    
-    function closeModal() {
-        modal.style.display = "none";
-        modalImg.src = "";
-        document.body.style.overflow = "auto"; // Re-enable scrolling
-    }
+}
+
+function closeModal() {
+    modal.style.display = "none";
+    modalImg.src = "";
+    document.body.style.overflow = "auto"; // Re-enable scrolling
+}
+
     
     // Debugging
     modalImg.onload = function() {

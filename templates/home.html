@@ -36,7 +36,7 @@
         .header {
             position: sticky;
             top: 0;
-            background-color: #55685d;
+            background-color: rgba(85, 104, 93, 0.7);
             padding: 20px 10px;
             z-index: 1000; 
             width: 100%; 
@@ -94,7 +94,8 @@
             margin: 0 auto;
         }
         .experience-container{
-            background-color: rgba(85, 104, 93, 0.8);
+            background-color: rgba(85, 104, 93, 0.7);
+            /*background-color: rgba(85, 104, 93, 0.8);*/
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -103,6 +104,7 @@
             height: auto; 
             margin: 0 auto;
             border-radius: 30px;
+            font-size: 16px;   
         }
         .gap-space{
             overflow: hidden;
@@ -129,7 +131,7 @@
             justify-content: flex-start;
             align-items: center;
             padding: 0px 10px;
-            width: 1200px; 
+            width: 700px; 
             height: auto; 
             margin: 0 auto;
             border-radius: 30px;
@@ -152,43 +154,41 @@
 
         /* General Skills Containers Styles */
         .generalskills-container {
-            display: flex;
-            flex-wrap: wrap;
-            background-color:lightgray;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 0px 10px;
-            width: 1200px;
-            height: 750px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+            grid-template-rows: repeat(2, 1fr);     /* 2 rows */
+            gap: 20px;                              /* spacing between items */
+            background-color: lightgray;
+            width: 1000px;
+            height: 700px;
             margin: 20px auto 0 auto;
             border-radius: 30px;
+            padding: 20px;
             position: relative; 
             z-index: 3; 
         }
-        .generalskills-left, .generalskills-right {
-            flex: 1;
+
+        .generalskills-left, 
+        .generalskills-right, 
+        .generalskills-third, 
+        .generalskills-fourth {   /* add a 4th if needed */
             text-align: center;
-            background-color: #55685d;  
-            width: auto;
-            height: auto;
-            border-radius:10px;
-            margin: 20px;
-            padding: 5px;
-        }
-        .generalskills-third {
-            flex: 1;
-            text-align: center;
-            background-color: #55685d;  
+            background-color: #86958c;
             border-radius: 10px;
-            margin-right: 300px;
-            margin-left: 300px;
-            margin-bottom: 30px;
-            padding: 5px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        .generalskills-left img, .generalskills-right img, .generalskills-third img {
+
+        .generalskills-left img, 
+        .generalskills-right img, 
+        .generalskills-third img, 
+        .generalskills-fourth img {
             display: block;
             margin: 5px auto;
-            width: 550px;
+            width: 100%;             /* responsive sizing */
+            max-width: 500px;        /* keep images under control */
             height: auto;
             border-radius: 10px;
         }
@@ -230,7 +230,7 @@
             <a href="/projects">Projects</a>
             <a class="title" href="#experience">Work Experience</a>
             <a href="#topskills">Top Skills</a>
-            <a href="#generalskills">General Skills</a>
+            <a href="#generalskills">Skills</a>
         </div>
     </div>
 
@@ -252,7 +252,7 @@
                     <div onclick="copyEmail()" style="cursor: pointer;">
                         <img src="{{ url_for('static', filename='images/email.jpg') }}" alt="Copy Email" width="60">
                     </div>
-                    <a href="https://drive.google.com/file/d/13bkD4D3Xpd9wSHB7gHbaUiWWLvMCFH0X/view?usp=sharing" target="_blank">
+                    <a href="https://drive.google.com/file/d/1qpZF0A__PR2v6lhgWCnmKvXZg8rLFFuB/view?usp=sharing" target="_blank">
                         <img src="{{ url_for('static', filename='images/resume_icon.jpg') }}" alt="Resume" width="48">
                     </a>
                 </div>
@@ -261,9 +261,9 @@
         <!-- Introduction -->
         <div class="right">
             <div id="typing"></div>
-            <p>As a dedicated Electrical Engineering student at UCLA, I'm passionate about advancing my skills in electronics, circuit and PCB design. </p>
-            <p>My academic journey is driven by a commitment to innovation and a desire to contribute to impactful projects. I'm currently focused on 
-                obtaining an internship where I can apply my knowledge to real-world challenges in the electronics field.</p>
+            <p>As a dedicated Electrical Engineering student, I bring a strong academic background with extensive hands-on experience in electronics and circuit design. My work includes optimizing wireless biosystems, prototyping test platforms, and designing PCBs for both RF and audio applications. Through my role as an Electrical Engineering intern, undergraduate researcher, and my passion projects, I've developed a strong skill set in hardware prototyping & debugging, data analysis, and cross-functional collaboration. I am eager to secure an internship where I can apply my skills and contribute to a team working on real-world engineering challenges. </p>
+            <p>I am eager to secure an internship where I can apply my skills and contribute to a team working on real-world engineering challenges. </p>
+
         </div>
     </div>
 
@@ -277,24 +277,52 @@
         </div>
     </div>
 
-    <!-- UCLA Lab Experience -->
+        <!-- SURP Experience -->
     <div class="experience-container">
         <div class="left">
-            <img src="{{ url_for('static', filename='images/i2bl.jpg') }}" alt="I2BL Logo" width="200">
-            <p><b>Interconnected & Integrated Bioelectronics UCLA Lab</b></p>
+            <img src="{{ url_for('static', filename='images/surp.png') }}" alt="SURP Logo" width="300">
+            <p><b>UCLA Summer Undergraduate Research Program</b></p>
+            <p><b>Lab: Interconnected & Integrated Bioelectronics</b></p>
+            <p>June 2025 - August 2025</p>
+            <p>Los Angeles, California, United States ~ On-site</p>
+        </div>
+        <div class="right">
+            <h2>Undergraduate Researcher</h2>
+            <p><b>Primary Duties</b></p>
+            <p>Implantable Biosensor System Design, Electrical Characterization & Validation, Algorithm Development, Impedance & Noise Analysis, Data Analysis, Technical Presenations</p>
+
+            <p><b>Tasks Performed</b></p>
+            <p>• Redesigned and optimized an implantable biosensing system, achieving a 32% miniaturization of the wearable module and a 340% increase in system sensitivity</p>
+            <p>• Developed a distance rejection algorithm based on voltage-distance mathematical modeling using a dual-pair system to compensate for distance-induced distortions and enable back-calculation of analyte concentration </p>
+            <p>• Enabled the testing of amperometric and potentiometric sensors by validating a 4x improvement in signal-to-noise ratio at the sensor input, leading to accurate biochemical monitoring </p>
+            <p>• Engineered a 3D-printed experimental test platform for millimeter-accurate and repeatable spatial data acquisition </p>
+            <p>• Authored a technical abstract and presented findings at a poster sympossium and research presentation to a broad audience </p>
+
+    
+        </div>
+    </div>
+
+        <div class="gap-space"></div>
+
+    <!-- I2BL Experience -->
+    <div class="experience-container">
+        <div class="left">
+            <img src="{{ url_for('static', filename='images/i2bl.jpg') }}" alt="I2BL Logo" width="300">
+            <p><b>Interconnected & Integrated Bioelectronics Lab</b></p>
             <p>September 2024 - Present</p>
             <p>Los Angeles, California, United States ~ On-site</p>
         </div>
         <div class="right">
             <h2>Undergraduate Researcher</h2>
             <p><b>Primary Duties</b></p>
-            <p>PCB Design and Optimization, Circuit Testing and Analysis, Simulation and Modeling, Prototype Developtment and Experimental Validation</p>
+            <p>Bioelectronics System Optimization, RF PCB Design & Prototyping, Circuit Characterization & Validation, Data Analysis, Technical Mentorship</p>
 
             <p><b>Tasks Performed</b></p>
-            <p>• Optimize implantable tag designs using EAGLE software, enhancing signal integrity and system gain response for emulated biosensor inputs</p>
-            <p>• Conduct comprehensive circuit testing and LTspice simulations for accurate modeling and performance prediction of bioelectronic systems </p>
+            <p>• Optimized wireless implantable and wearable system designs using EAGLE, implementing RF design practices such as AC/DC separation, proper ground/power planes, shielding, and specific design constraints to mitigate noise and enhance signal fidelity</p>
+            <p>• Utilized LTspice simulations, oscilloscope, and a VNA for automated circuit testing, comprehensive debugging, optimizing system performance, and system characterization </p>
             <p>• Collaborate with team members to prototype, iterate, and refine PCB designs for implantable bioelectronic devices, applying soldering techniques and design modifications </p>
-            <p>• Analyze data, document procedures, and prepare technical reports to validate system performance and communicate research findings to the team and supervisors </p>
+            <p>• Interviewed, onboarded, and trained multidisciplinary undergraduate researchers on lab equipment, circuit testing, debugging methodology, and design principles</p>
+            <p>• Analyze data, document procedures, and prepare technical reports to validate system performance and communicate research findings to the team</p>
     
         </div>
     </div>
@@ -304,7 +332,7 @@
     <!-- LLNL Experience -->
     <div class="experience-container">
         <div class="left">
-            <img src="{{ url_for('static', filename='images/llnl.jpg') }}" alt="LLNL Logo" width="200">
+            <img src="{{ url_for('static', filename='images/llnl.jpg') }}" alt="LLNL Logo" width="300">
             <p><b>Lawrence Livermore National Laboratory</b></p>
             <p>May 2024 - August 2024</p>
             <p>Livermore, California, United States ~ On-Site</p>
@@ -315,10 +343,10 @@
             <p>Circuit Design and Prototyping, Electrical Characterization and Testing, Experimental System Development, Data Analysis and Optimization </p>
 
             <p><b>Tasks Performed</b></p>
-            <p>• Prototyped an advanced testing system for triboelectric nanogenerator circuits, increasing maximum measurable voltage by 4000% and enabling accurate micro-amp current and mega-ohm impedance measurements</p>
-            <p>• Designed and assembled high input impedance voltage buffers and trans-impedance amplifiers, integrating multiple measurement capabilities for enhanced circuit performance and user safety </p>
-            <p>• Conducted electrical characterization of display actuators in liquid crystal and electrophoretic display technologies, analyzing performance parameters and operational characteristics </p>
-            <p>• Operated robotic systems to perform over 100 experiments on power harvesting systems, optimizing power transfer efficiency and analyzing key performance factors </p>
+            <p>• Prototyped a testing system for a triboelectric nanogenerator circuit, increasing the maximum measurable voltage by 4000%</p>
+            <p>• Designed and assembled 10 high input impedance voltage buffers and transimpedance amplifiers for a custom experiment, measuring micro amp current and mega ohm impedances </p>
+            <p>• Applied electrical characterization and modeling of display actuators in liquid crystal and electrophoretic display technologies </p>
+            <p>• Utilized a robotic system to conduct 100+ experiments with mechanical actuation of the power harvesting system optimizing power transfer and power efficiency </p>
             <p>• Collaborated with interdisciplinary teams on power harvesting nanogenerator project, presenting bi-weekly presenations and contributing to the lab's research knowledge base through comprehensive technical documentation </p>
         </div>
     </div>
@@ -328,7 +356,7 @@
     <!-- BK Experience -->
     <div class="experience-container">
         <div class="left">
-            <img src="{{ url_for('static', filename='images/bk.jpg') }}" alt="LLNL Logo" width="200">
+            <img src="{{ url_for('static', filename='images/bk.jpg') }}" alt="LLNL Logo" width="300">
             <p><b>Burger King</b></p>
             <p>June 2020 - May 2024</p>
             <p>Hayward, California, United States ~ On-Site</p>
@@ -345,7 +373,7 @@
     <!-- JLHS Experience -->
     <div class="experience-container">
         <div class="left">
-            <img src="{{ url_for('static', filename='images/jlhs.jpg') }}" alt="LLNL Logo" width="200">
+            <img src="{{ url_for('static', filename='images/jlhs.jpg') }}" alt="LLNL Logo" width="300">
             <p><b>James Logan High School Math Department</b></p>
             <p>September 2020 - May 2021</p>
             <p>Union City, California, United States ~ Hybrid</p>
@@ -373,7 +401,7 @@
             <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="LLNL Logo" width="80">
         </div>
         <div class="skills-right">
-            <h2>PCB Design and Layout</h2>
+            <h2>PCB Design, Layout & Assembly</h2>
         </div>
     </div>
 
@@ -384,7 +412,7 @@
             <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="Diamond Logo" width="80">
         </div>
         <div class="skills-right">
-            <h2>Circuit Prototyping and Testing</h2>
+            <h2>RF & Analog Circuit Design</h2>
         </div>
     </div>
 
@@ -395,7 +423,7 @@
             <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="Diamond Logo" width="80">
         </div>
         <div class="skills-right">
-            <h2>PCB Assembly</h2>
+            <h2>Hardware Prototyping & Debugging</h2>
         </div>
     </div>
 
@@ -406,7 +434,7 @@
             <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="Diamond Logo" width="80">
         </div>
         <div class="skills-right">
-            <h2>C++ Programming</h2>
+            <h2>Test System Development & Data Analysis</h2>
         </div>
     </div>
 
@@ -417,7 +445,7 @@
             <img src="{{ url_for('static', filename='images/diamond.jpg') }}" alt="Diamond Logo" width="80">
         </div>
         <div class="skills-right">
-            <h2>Arduino</h2>
+            <h2>Project Management & Collaboration</h2>
         </div>
     </div>
 
@@ -429,7 +457,7 @@
     <div class="center">
         <div class="title" id="generalskills">
             <a href="#top" style="text-decoration: underline; color: black;">
-                <h1 style="font-weight: bold; color: black;">General Skills</h1>
+                <h1 style="font-weight: bold; color: black;">Skills</h1>
             </a>
         </div>
     </div>
@@ -440,11 +468,15 @@
         </div>
 
         <div class="generalskills-right">
-            <img src="{{ url_for('static', filename='images/professional_skills.jpg') }}" alt="Professional Skills">
+            <img src="{{ url_for('static', filename='images/software_programming.jpg') }}" alt="Software">
         </div>
 
         <div class="generalskills-third">
-            <img src="{{ url_for('static', filename='images/programming_languages.jpg') }}" alt="Programming Languages">
+            <img src="{{ url_for('static', filename='images/test_equipment.jpg') }}" alt="Test Equipment">
+        </div>
+
+        <div class="generalskills-fourth">
+            <img src="{{ url_for('static', filename='images/professional_skills.jpg') }}" alt="Professional Skills">
         </div>
     </div>
 
