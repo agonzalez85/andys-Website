@@ -104,7 +104,7 @@
         }
 
         .nav-links a {
-            color: #ffffff;
+            color: #616f66;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
@@ -136,7 +136,7 @@
         }
 
         .nav-links a:hover {
-            color: #ffffff;
+            color: #616f66;
             background: linear-gradient(135deg, 
                 rgba(255, 255, 255, 0.25) 0%, 
                 rgba(255, 255, 255, 0.15) 100%);
@@ -273,6 +273,12 @@
         }
 
         /* Typing Animation */
+        .typing-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
         #typing {
             font-family: 'Courier New', monospace;
             font-size: 2.5rem;
@@ -281,15 +287,22 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            border-right: 3px solid #616f66;
+            display: inline;
+        }
+
+        .typing-cursor {
             display: inline-block;
+            width: 3px;
+            height: 3rem;
+            background-color: #616f66;
             animation: blink 0.7s step-end infinite alternate;
-            margin-bottom: 1.5rem;
+            margin-left: 2px;
+            vertical-align: top;
         }
 
         @keyframes blink {
             50% {
-                border-color: transparent;
+                opacity: 0;
             }
         }
 
@@ -746,6 +759,10 @@
                 font-size: 2rem;
             }
             
+            .typing-cursor {
+                height: 3rem;
+            }
+            
             .section-title h1 {
                 font-size: 2.5rem;
             }
@@ -775,6 +792,10 @@
             
             #typing {
                 font-size: 1.5rem;
+            }
+            
+            .typing-cursor {
+                height: 1.5rem;
             }
             
             .section-title h1 {
@@ -855,7 +876,9 @@
             </div>
 
             <div class="hero-right">
-                <div id="typing"></div>
+                <div class="typing-container">
+                    <span id="typing"></span><span class="typing-cursor"></span>
+                </div>
                 <p>As a dedicated Electrical Engineering student, I bring a strong academic background with extensive hands-on experience in electronics and circuit design. My work includes optimizing wireless biosystems, prototyping test platforms, and designing PCBs for both RF and audio applications.</p>
                 <p>Through my role as an Electrical Engineering intern, undergraduate researcher, and my passion projects, I've developed a strong skill set in PCB & circuit design, hardware prototyping & debugging, data analysis, and cross-functional collaboration.</p>
                 <p>I am eager to secure an internship where I can apply my skills and contribute to a team working on real-world engineering challenges.</p>
@@ -1262,15 +1285,6 @@
                         });
                     }
                 });
-            });
-
-            // Parallax effect for hero section
-            window.addEventListener('scroll', function() {
-                const scrolled = window.pageYOffset;
-                const heroSection = document.querySelector('.hero-section');
-                if (heroSection) {
-                    heroSection.style.transform = `translateY(${scrolled * 0.1}px)`;
-                }
             });
         });
     </script>
