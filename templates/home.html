@@ -161,7 +161,7 @@
             display: none;
         }
 
-        /* Mobile Menu */
+        /* Mobile Menu - Header */
         .mobile-menu {
             display: none;
             flex-direction: column;
@@ -272,7 +272,7 @@
             transform: scale(1.05) rotate(2deg);
         }
 
-        /* Typing Animation */
+        /* Typing Animation - 'Im Andy Gonzalez' */
         .typing-container {
             position: relative;
             display: inline-block;
@@ -479,8 +479,91 @@
             margin-bottom: 1rem;
         }
 
+        /* Enhanced Skills Section - Removed slow transitions */
+        .skills-showcase {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 3rem;
+            margin: 3rem auto;
+            max-width: 1200px;
+            width: 90%;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(97, 111, 102, 0.1), rgba(97, 111, 102, 0.05));
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(97, 111, 102, 0.2);
+            position: relative;
+            overflow: hidden;
+            opacity: 1; /* Always visible */
+            transform: translateY(0); /* No initial offset */
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            background: linear-gradient(90deg, #616f66, #4a5d4f);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, rgba(97, 111, 102, 0.15), rgba(97, 111, 102, 0.08));
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem auto;
+            background: linear-gradient(135deg, #616f66, #4a5d4f);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .skill-icon img {
+            width: 35px;
+            height: 35px;
+            filter: brightness(0) invert(1);
+        }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
         /* Mobile Skills Container */
-        @media screen and (max-width: 880px) {
+        @media screen and (max-width: 1100px) {
             .skills-container {
                 width: 95%;
                 padding: 15px;
@@ -535,10 +618,6 @@
             transition: all 0.3s ease;
         }
 
-        .skill-card:hover .skill-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
         .generalskills-left img, 
         .generalskills-right img, 
         .generalskills-third img, 
@@ -551,7 +630,7 @@
             border-radius: 10px;
         }
 
-        /* General Skills Grid - Removed slow transitions */
+        /* General Skills Grid  */
         .general-skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -649,7 +728,7 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 1200px) {
+        @media (max-width: 1000px) {
             .experience-wrapper {
                 flex-direction: column;
                 gap: 2rem;
@@ -662,7 +741,7 @@
             }
         }
 
-        @media (max-width: 1000px) {
+        @media (max-width: 1100px) {
             .header {
                 padding: 0 1rem;
             }
@@ -757,7 +836,7 @@
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 1100px) {
             .hero-section {
                 padding: 2rem 1rem;
             }
@@ -1004,7 +1083,7 @@
             </div>
         </div>
 
-        <!-- Top Skills Section -->
+       <!-- Top Skills Section -->
         <div class="section-title" id="topskills">
             <a href="#top">
                 <h1>Top Skills</h1>

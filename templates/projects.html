@@ -136,7 +136,7 @@
         }
 
         .nav-links a:hover {
-            color: #616f66;
+            color: #ffffff;
             background: linear-gradient(135deg, 
                 rgba(255, 255, 255, 0.25) 0%, 
                 rgba(255, 255, 255, 0.15) 100%);
@@ -168,14 +168,14 @@
             cursor: pointer;
             padding: 0.75rem;
             border-radius: 12px;
-            background: rgba(255, 255, 255, 0.3);
+            background: #616f66;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid #616f66;
             transition: all 0.3s ease;
         }
 
         .mobile-menu:hover {
-            background: rgba(255, 255, 255, 0.5);
+            background: #616f66;
             transform: scale(1.05);
         }
 
@@ -582,7 +582,7 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
+        @media (max-width: 1100px) {
             .project-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -593,24 +593,29 @@
             }
         }
 
-        @media (max-width: 1000px) {
+        @media (max-width: 1100px) {
             .nav-links {
                 display: none;
                 position: absolute;
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: rgba(255, 255, 255, 0.98);
+                background: #616f66;
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 padding: 2rem;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
                 border-radius: 0 0 20px 20px;
             }
             
             .nav-links.active {
                 display: flex;
                 animation: slideDown 0.3s ease-out;
+            }
+            
+            .nav-links a {
+                color: #ffffff;
+                text-shadow: none;
+                margin: 0.25rem 0;
             }
             
             .mobile-menu {
@@ -642,7 +647,7 @@
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 1100px) {
             .hero h1 {
                 font-size: 2rem;
             }
